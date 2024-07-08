@@ -1,5 +1,8 @@
 package entities;
 
+import java.util.Locale;
+import java.util.Scanner;
+
 public class Program {
 
 	public static void main(String[] args) {
@@ -14,9 +17,35 @@ Digite dois numeros:
 SOMA DOS IMPARES = 15
 
 		 */
+		int x;
+		int y;
+		int somaImpar;
+		int troca;
 		
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
 		
-
+		System.out.println("Digite dois numeros:");
+		x = sc.nextInt();
+		y = sc.nextInt();
+		
+		if(x > y) {
+			troca = x;
+			x = y;
+			y = troca;
+		}
+		
+		somaImpar = 0;
+		
+		for (int i = x + 1; i < y; i++ ) {
+			if(i % 2 != 0) {
+				somaImpar = somaImpar + i;
+			}
+		}
+		
+		System.out.printf("SOMA DOS IMPARES = %d\n", somaImpar);
+		
+		sc.close();
 	}
 
 }
